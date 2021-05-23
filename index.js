@@ -1,7 +1,7 @@
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
   return fetch('https://anapioficeandfire.com/api/books').then(response => response.json()).then(json => {
-    console.log(json[4])
+    console.log(`The 5th book in the series is called "${json[4].name}"`)
     const totalNumberOfPages = json.map((object) => object
     ['numberOfPages']).reduce((accumulator,currentValue) => accumulator + currentValue)
     console.log(`There are a total of ${totalNumberOfPages} pages`)
@@ -13,6 +13,7 @@ function fetchBooks() {
     let character1031 = charactersAllTogether.find((string)=> string === 'https://anapioficeandfire.com/api/characters/1031')
     console.log(`The info about the 1031st character is in the following link: ${character1031}`)
     renderBooks(json)
+    console.log(json)
   })
 }
 
